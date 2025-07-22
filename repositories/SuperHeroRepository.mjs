@@ -3,7 +3,7 @@ import IRepository from "./IRepository.mjs"
 
 class SuperHeroRepository extends IRepository {
   async obtenerPorId(id) {
-    return await SuperHero.findOne({id: id})
+    return await SuperHero.findById(id)
   }
 
   async obtenerTodos() {
@@ -25,13 +25,15 @@ class SuperHeroRepository extends IRepository {
   async agregar(superheroe) {
     return await SuperHero.create(superheroe)
   }
-
+  
   async actualizar(id, atributos) {
-    return await SuperHero.findOneAndUpdate({id: id}, atributos, { new: true })
+    return await SuperHero.findByIdAndUpdate(id, atributos, { new: true})
+    // return await SuperHero.findOneAndUpdate({id:id}, atributos, { new: true})
   }
 
   async eliminarPorId(id) {
-    return await SuperHero.findOneAndDelete({id: id})
+    return await SuperHero.findByIdAndDelete(id)
+    // return await SuperHero.findOneAndDelete({id: id})
   }
 
   async eliminarPorNombre(nombre) {

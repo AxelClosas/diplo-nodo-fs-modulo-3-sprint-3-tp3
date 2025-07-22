@@ -2,6 +2,8 @@ import { obtenerSuperheroePorId, obtenerTodosLosSuperheroes, buscarSuperheroesPo
 
 import { renderizarSuperheroe, renderizarListaSuperheroes } from '../views/responseView.mjs'
 
+import SuperHero from '../models/SuperHero.mjs'
+
 export async function obtenerSuperheroePorIdController(req, res) {
   try {
     const { id } = req.params
@@ -60,14 +62,14 @@ export async function obtenerSuperheroesMayoresDe30Controller(req, res) {
 
 export async function agregarSuperheroeController(req, res) {
   try {
-    const buscarId = await obtenerSuperheroePorId(req.body.id)
-    if (buscarId !== null) {
-      throw new Error('No se puede agregar un superhéroe con el mismo ID.')
-    }
-    const { id, nombreSuperHeroe, nombreReal, edad, planetaOrigen, debilidad, poderes, aliados, enemigos, creador } = req.body
-    const nuevoSuperHeroe = { id, nombreSuperHeroe, nombreReal, edad, planetaOrigen, debilidad, poderes, aliados, enemigos, creador }
+    // const buscarId = await obtenerSuperheroePorId(req.body.id)
+    // if (buscarId !== null) {
+    //   throw new Error('No se puede agregar un superhéroe con el mismo ID.')
+    // }
+    // const { id, nombreSuperHeroe, nombreReal, edad, planetaOrigen, debilidad, poderes, aliados, enemigos, creador } = req.body
+    // const nuevoSuperHeroe = { id, nombreSuperHeroe, nombreReal, edad, planetaOrigen, debilidad, poderes, aliados, enemigos, creador }
+    const nuevoSuperHeroe = new SuperHero(req.body)
     const superheroe = await agregarSuperheroe(nuevoSuperHeroe)
-    
     const superheroeFormateado = renderizarSuperheroe(superheroe)
     res.status(201).json(superheroeFormateado)
     

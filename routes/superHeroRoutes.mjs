@@ -11,7 +11,7 @@ router.get('/heroes/:id', obtenerSuperheroePorIdController)
 router.get('/heroes/:atributo/:valor', buscarSuperheroesPorAtributoController)
 
 router.post('/heroes', agregarValidationRules(), handleValidationErros, agregarSuperheroeController) // Agregar un superhéroe
-router.put('/heroes/:id', actualizarSuperheroePorIdController) // Actualizar un superhéroe por Id
+router.put('/heroes/:id', agregarValidationRules(), handleValidationErros,actualizarSuperheroePorIdController) // Actualizar un superhéroe por Id
 
 router.delete('/heroes/:id', eliminarSuperheroePorIdController)
 router.delete('/heroes/nombreSuperheroe/:nombreSuperHeroe', eliminarSuperheroePorNombreSuperheroeController)
