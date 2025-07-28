@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Superhéroes</title>
+</head>
+<body>
+  <h1>Listado completo</h1>
+  <a href="agregar">Agregar Superhéroe</a>
+  <ul>
+    <% superheroes.forEach(superheroe => { %>
+     <li>Nombre de Superhéroe: <strong><%= superheroe.nombreSuperHeroe %></strong> - Nombre Real: <strong><%= superheroe.nombreReal %></strong></li>
+    <% }) %>
+  </ul>
+</body>
+</html>

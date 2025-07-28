@@ -8,6 +8,10 @@ const PORT = process.env.PORT || 3000
 
 /* Middleware para parsear JSON */
 app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+
+/* Configuramos EJS como Motor de Vistas */
+app.set('view engine', 'ejs')
 
 /* Conexión a MongoDB */
 connectDB()

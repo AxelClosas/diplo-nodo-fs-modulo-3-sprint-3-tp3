@@ -24,8 +24,9 @@ export async function obtenerTodosLosSuperheroesController(req, res) {
   try {
     const superheroes = await obtenerTodosLosSuperheroes()
 
-    const superheroesFormateados = renderizarListaSuperheroes(superheroes)
-    res.status(200).json(superheroesFormateados)
+    // const superheroesFormateados = renderizarListaSuperheroes(superheroes)
+    // res.status(200).json(superheroesFormateados)
+    res.status(200).render('dashboard', { superheroes })
   } catch (error) {
     res.status(500).send( {mensaje: 'Error al obtener los superhéroes', error: error.message })
   }
@@ -60,19 +61,16 @@ export async function obtenerSuperheroesMayoresDe30Controller(req, res) {
   }
 }
 
+export function agregarSuperheroeFormController(req, res) {
+  res.status(200).render('addSuperhero')
+}
+
 export async function agregarSuperheroeController(req, res) {
   try {
-    // const buscarId = await obtenerSuperheroePorId(req.body.id)
-    // if (buscarId !== null) {
-    //   throw new Error('No se puede agregar un superhéroe con el mismo ID.')
-    // }
-    // const { id, nombreSuperHeroe, nombreReal, edad, planetaOrigen, debilidad, poderes, aliados, enemigos, creador } = req.body
-    // const nuevoSuperHeroe = { id, nombreSuperHeroe, nombreReal, edad, planetaOrigen, debilidad, poderes, aliados, enemigos, creador }
     const nuevoSuperHeroe = new SuperHero(req.body)
     const superheroe = await agregarSuperheroe(nuevoSuperHeroe)
     const superheroeFormateado = renderizarSuperheroe(superheroe)
     res.status(201).json(superheroeFormateado)
-    
   } catch (error) {
     res.status(409).send( { mensaje: 'Error al agregar el Superheroe', error: error.message })
   }

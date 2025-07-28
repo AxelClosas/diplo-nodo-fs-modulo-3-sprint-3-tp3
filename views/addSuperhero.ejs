@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Superhéroe</title>
+</head>
+<body>
+  <form action="agregar" method="post">
+    <label for="nombreSuperHeroe">Nombre Superhéroe</label>
+    <br>
+    <input type="text" name="nombreSuperHeroe" id="nombreSuperHeroe" required>
+    <br>
+
+    <label for="nombreReal">Nombre Real</label>
+    <br>
+    <input type="text" name="nombreReal" id="nombreReal" required>
+    <br>
+    
+    <label for="edad">Edad</label>
+    <br>
+    <input type="number" name="edad" id="edad" required>
+    <br>
+    
+    <label for="planetaOrigen">Planeta de Origen</label>
+    <br>
+    <input type="text" name="planetaOrigen" id="planetaOrigen">
+    <br>
+    
+    <label for="poderes">Poderes</label>
+    <br>
+    <p><small>Ingresa los poderes separados por coma. Por ejemplo: Volar, Fuerza sobrehumana, etc</small></p>
+    <br>
+    <input type="text" name="poderes" id="poderes">
+    <br>
+
+    <label for="aliados">Aliados</label>
+    <br>
+    <p><small>Ingresa los alidos separados por coma. Por ejemplo: Aliado 1, Aliado 2, etc</small></p>
+    <br>
+    <input type="text" name="aliados" id="aliados">
+    <br>
+
+    <label for="enemigos">Enemigos</label>
+    <br>
+    <p><small>Ingresa los enemigos separados por coma. Por ejemplo: Enemigo 1, Enemigo 2, etc</small></p>
+    <br>
+    <input type="text" name="enemigos" id="enemigos">
+    <br>
+    
+    <input type="submit" value="Agregar">
+  </form>
+</body>
+</html>
