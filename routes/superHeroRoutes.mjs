@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import { obtenerSuperheroePorIdController, obtenerTodosLosSuperheroesController, buscarSuperheroesPorAtributoController, obtenerSuperheroesMayoresDe30Controller, agregarSuperheroeController, agregarSuperheroeFormController, actualizarSuperheroePorIdController, eliminarSuperheroePorIdController, eliminarSuperheroePorNombreSuperheroeController } from '../controllers/superheroesController.mjs'
+import { parseStringToArray } from '../middlewares/parseStringToArray.mjs'
 import { agregarValidationRules } from '../middlewares/validationRules.mjs'
 import { handleValidationErros } from '../middlewares/errorMiddleware.mjs'
 
@@ -11,9 +12,9 @@ router.get('/heroes/heroe/:id', obtenerSuperheroePorIdController)
 router.get('/heroes/heroe/atributo/:atributo/:valor', buscarSuperheroesPorAtributoController)
 
 /* Endpoint para formulario Agregar Superhéroe */
-router.get('/heroes/agregar', agregarSuperheroeFormController)
-// router.post('/heroes/agregar', agregarValidationRules(), handleValidationErros, agregarSuperheroeController) // Agregar un superhéroe
-router.post('/heroes/agregar', agregarSuperheroeController) // Agregar un superhéroe
+router.get('/heroes/formAgregar', agregarSuperheroeFormController)
+router.post('/heroes/agregar', parseStringToArray, agregarValidationRules(), handleValidationErros, agregarSuperheroeController) // Agregar un superhéroe
+// router.post('/heroes/agregar', agregarSuperheroeController) // Agregar un superhéroe
 
 router.put('/heroes/:id', agregarValidationRules(), handleValidationErros,actualizarSuperheroePorIdController) // Actualizar un superhéroe por Id
 

@@ -1,4 +1,5 @@
 import superHeroRepository from '../repositories/SuperHeroRepository.mjs'
+import SuperHero from '../models/SuperHero.mjs'
 
 export async function obtenerSuperheroePorId(id) {
   return await superHeroRepository.obtenerPorId(id)
@@ -16,8 +17,14 @@ export async function obtenerSuperheroesMayoresDe30() {
   return await superHeroRepository.obtenerMayoresDe30()
 }
 
-export async function agregarSuperheroe(superheroe) {
-  return await superHeroRepository.agregar(superheroe)
+
+
+export async function agregarSuperheroe(body) {
+  const superheroe = { ...body }
+
+  console.log(superheroe)
+  process.exit()
+  return await superHeroRepository.agregar(body)
 }
 
 export async function actualizarSuperheroePorId(id, atributos) {
