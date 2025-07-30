@@ -68,8 +68,9 @@ export function agregarSuperheroeFormController(req, res) {
 export async function agregarSuperheroeController(req, res) {
   try {
     const nuevoSuperheroe = await agregarSuperheroe(req.body)
-    const superheroeFormateado = renderizarSuperheroe(nuevoSuperheroe)
-    res.status(201).render(superheroeFormateado)
+    if (nuevoSuperheroe)
+      await res.redirect('/api/heroes')
+
   } catch (error) {
     res.status(409).send( { mensaje: 'Error al agregar el Superheroe', error: error.message })
   }

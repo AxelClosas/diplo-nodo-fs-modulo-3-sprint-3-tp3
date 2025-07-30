@@ -21,10 +21,7 @@ export async function obtenerSuperheroesMayoresDe30() {
 
 export async function agregarSuperheroe(body) {
   const superheroe = { ...body }
-
-  console.log(superheroe)
-  process.exit()
-  return await superHeroRepository.agregar(body)
+  return await superHeroRepository.agregar(superheroe)
 }
 
 export async function actualizarSuperheroePorId(id, atributos) {
