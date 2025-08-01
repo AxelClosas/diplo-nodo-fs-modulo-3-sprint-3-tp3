@@ -10,7 +10,7 @@
   <a href="/api/heroes/formAgregar">Agregar Superhéroe</a>
   <ul>
     <% superheroes.forEach(superheroe => { %>
-     <li>Nombre de Superhéroe: <strong><%= superheroe.nombreSuperHeroe %></strong> - Nombre Real: <strong><%= superheroe.nombreReal %></strong></li>
+     <li>Nombre de Superhéroe: <strong><%= superheroe.nombreSuperHeroe %></strong> - Nombre Real: <strong><%= superheroe.nombreReal %></strong> - <a href="/api/heroes/<%= superheroe._id %>/editar">Editar</a></li>
     <% }) %>
   </ul>
 </body>

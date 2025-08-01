@@ -26,7 +26,7 @@ export async function obtenerTodosLosSuperheroesController(req, res) {
 
     // const superheroesFormateados = renderizarListaSuperheroes(superheroes)
     // res.status(200).json(superheroesFormateados)
-    res.status(200).render('dashboard', { superheroes })
+    res.render('dashboard', { superheroes })
   } catch (error) {
     res.status(500).send( {mensaje: 'Error al obtener los superhéroes', error: error.message })
   }
@@ -76,6 +76,19 @@ export async function agregarSuperheroeController(req, res) {
   }
 }
 
+export async function editarSuperheroePorIdFormController(req, res) {
+  try {
+    const { id } = req.params
+    const superheroe = await obtenerSuperheroePorId(id)
+    if (id === null) {
+      throw new Error(`No se encontró el Superhéroe con ID: ${id}`)
+    }
+    res.render('editSuperhero', { superheroe })
+  } catch (error) {
+    res.status(404).send({mensaje: 'Error al actualizar el Superhéroe', error: error.message})
+  }
+}
+
 export async function actualizarSuperheroePorIdController(req, res) {
   try {
     const { id } = req.params
@@ -84,9 +97,10 @@ export async function actualizarSuperheroePorIdController(req, res) {
       throw new Error(`No se encontró el Superhéroe con ID: ${id}`)
     }
     const atributosSuper = req.body
-    const superheroe = await actualizarSuperheroePorId(id, atributosSuper)
-    const superheroeFormateado = renderizarSuperheroe(superheroe)
-    res.status(200).json(superheroeFormateado)
+    // const superheroe = await actualizarSuperheroePorId(id, atributosSuper)
+    await actualizarSuperheroePorId(id, atributosSuper)
+    // const superheroeFormateado = renderizarSuperheroe(superheroe)
+    return await res.redirect('/api/heroes')
 
   } catch (error) {
     res.status(404).send({mensaje: 'Error al actualizar el Superhéroe', error: error.message})

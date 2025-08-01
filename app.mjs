@@ -1,6 +1,8 @@
 import express from 'express'
 import { connectDB } from './config/dbConfig.mjs'
 import superHeroRoutes from './routes/superHeroRoutes.mjs'
+import methodOverride from 'method-override'
+
 
 
 const app = express()
@@ -8,7 +10,10 @@ const PORT = process.env.PORT || 3000
 
 /* Middleware para parsear JSON */
 app.use(express.json())
+/* Middleware para trabajar con formularios. application/x-www-form-urlencoded */
 app.use(express.urlencoded({ extended: true }))
+/* Middleware para trabajar con el método put desde un formulario */
+app.use(methodOverride('_method'))
 
 /* Configuramos EJS como Motor de Vistas */
 app.set('view engine', 'ejs')
