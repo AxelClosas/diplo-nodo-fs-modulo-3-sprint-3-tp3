@@ -8,6 +8,28 @@
 <body>
   <h1>Listado completo</h1>
   <a href="/api/heroes/formAgregar">Agregar Superhéroe</a>
+  <table>
+    <thead>
+      <tr>
+        <th>Superhéroe</th>
+        <th>Nombre Real</th>
+        <th>Edad</th>
+        <th>Planeta de Origen</th>
+        <th>Poderes</th>
+        <th>Aliados</th>
+        <th>Enemigos</th>
+        <th>Creador</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% superheroes.forEach(super => { %>
+       <tr>
+        <td><%= super.nombreSuperHeroe %></td>
+       </tr>
+      <% }) %>
+    </tbody>
+  </table>
   <ul>
     <% superheroes.forEach(superheroe => { %>
      <li>Nombre de Superhéroe: <strong><%= superheroe.nombreSuperHeroe %></strong> - Nombre Real: <strong><%= superheroe.nombreReal %></strong> - <a href="/api/heroes/<%= superheroe._id %>/editar">Editar</a> - <a href="/api/heroes/heroe/<%= superheroe._id %>">Eliminar</a>
