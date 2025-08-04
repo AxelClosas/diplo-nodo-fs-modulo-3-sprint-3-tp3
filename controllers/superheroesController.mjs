@@ -2,7 +2,6 @@ import { obtenerSuperheroePorId, obtenerTodosLosSuperheroes, buscarSuperheroesPo
 
 import { renderizarSuperheroe, renderizarListaSuperheroes } from '../views/responseView.mjs'
 
-import SuperHero from '../models/SuperHero.mjs'
 
 export async function obtenerSuperheroePorIdController(req, res) {
   try {
@@ -12,8 +11,9 @@ export async function obtenerSuperheroePorIdController(req, res) {
       return res.status(404).send( {mensaje: 'Superheroe no encontrado' })
     }
 
-    const superheroeFormateado = renderizarSuperheroe(superheroe)
-    res.status(200).json(superheroeFormateado)
+    res.render('viewConfirmDeleteSuperhero', { superheroe })
+    // const superheroeFormateado = renderizarSuperheroe(superheroe)
+    // res.status(200).json(superheroeFormateado)
 
   } catch (error) {
     res.status(500).send( { mensaje: 'Error al obtener el superhéroe', error: error.message })
@@ -114,9 +114,8 @@ export async function eliminarSuperheroePorIdController(req, res) {
     if (buscarId === null) {
       throw new Error(`No se encontró el Superhéroe con ID: ${id}`)
     }
-    const superheroeEliminado = await eliminarSuperheroePorId(id)
-    const superheroeFormateado = renderizarSuperheroe(superheroeEliminado)
-    res.status(200).json(superheroeFormateado)
+    await eliminarSuperheroePorId(id)
+    await res.redirect('/api/heroes')
 
   } catch (error) {
     res.status(404).send({mensaje: 'Error al eliminar el Superhéroe', error: error.message})
