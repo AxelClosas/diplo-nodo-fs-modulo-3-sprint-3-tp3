@@ -14,6 +14,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 /* Middleware para trabajar con el método put desde un formulario */
 app.use(methodOverride('_method'))
+/* Middleware para servir archivos estáticos */
+app.use(express.static('public'))
 
 /* Configuramos EJS como Motor de Vistas */
 app.set('view engine', 'ejs')
