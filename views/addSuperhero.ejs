@@ -3,57 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/output.css" type="text/css">
+
   <title>Agregar Superhéroe</title>
 </head>
 <body>
-  <form action="/api/heroes/agregar" method="post">
-    <label for="nombreSuperHeroe">Nombre Superhéroe</label>
-    <br>
-    <input type="text" name="nombreSuperHeroe" id="nombreSuperHeroe" required>
-    <br>
-
-    <label for="nombreReal">Nombre Real</label>
-    <br>
-    <input type="text" name="nombreReal" id="nombreReal" required>
-    <br>
-    
-    <label for="edad">Edad</label>
-    <br>
-    <input type="number" name="edad" id="edad" required>
-    <br>
-    
-    <label for="planetaOrigen">Planeta de Origen</label>
-    <br>
-    <input type="text" name="planetaOrigen" id="planetaOrigen">
-    <br>
-    
-    <label for="poderes">Poderes</label>
-    <br>
-    <p><small>Ingresa los poderes separados por coma.</small></p>
-    <br>
-    <input type="text" name="poderes" id="poderes">
-    <br>
-
-    <label for="aliados">Aliados</label>
-    <br>
-    <p><small>Ingresa los aliados separados por coma.</small></p>
-    <br>
-    <input type="text" name="aliados" id="aliados">
-    <br>
-
-    <label for="enemigos">Enemigos</label>
-    <br>
-    <p><small>Ingresa los enemigos separados por coma.</small></p>
-    <br>
-    <input type="text" name="enemigos" id="enemigos">
-    <br>
-
-    <label for="creador">Creador</label>
-    <br>
-    <input type="text" name="creador" id="creador">
-    <br>
-    
-    <input type="submit" value="Agregar">
-  </form>
+  <%- include('partials/header') %>
+  <main>
+    <form action="/api/heroes/agregar" method="post">
+      <label for="nombreSuperHeroe">Nombre Superhéroe</label>
+      <br>
+      <input type="text" name="nombreSuperHeroe" id="nombreSuperHeroe" required>
+      <br>
+  
+      <label for="nombreReal">Nombre Real</label>
+      <br>
+      <input type="text" name="nombreReal" id="nombreReal" required>
+      <br>
+      
+      <label for="edad">Edad</label>
+      <br>
+      <input type="number" name="edad" id="edad" required>
+      <br>
+      
+      <label for="planetaOrigen">Planeta de Origen</label>
+      <br>
+      <input type="text" name="planetaOrigen" id="planetaOrigen">
+      <br>
+      
+      <label for="poderes">Poderes</label>
+      <br>
+      <p><small>Ingresa los poderes separados por coma.</small></p>
+      <br>
+      <input type="text" name="poderes" id="poderes">
+      <br>
+  
+      <label for="aliados">Aliados</label>
+      <br>
+      <p><small>Ingresa los aliados separados por coma.</small></p>
+      <br>
+      <input type="text" name="aliados" id="aliados">
+      <br>
+  
+      <label for="enemigos">Enemigos</label>
+      <br>
+      <p><small>Ingresa los enemigos separados por coma.</small></p>
+      <br>
+      <input type="text" name="enemigos" id="enemigos">
+      <br>
+  
+      <label for="creador">Creador</label>
+      <br>
+      <input type="text" name="creador" id="creador">
+      <br>
+      
+      <input type="submit" value="Agregar">
+    </form>
+  </main>
 </body>
 </html>

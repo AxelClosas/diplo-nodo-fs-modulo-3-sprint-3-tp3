@@ -3,58 +3,64 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/output.css" type="text/css">
+
   <title>Editar Superhéroe</title>
 </head>
 <body>
-  <form action="/api/heroes/<%=superheroe._id%>?_method=PUT" method="POST">
-    <label for="nombreSuperHeroe">Nombre Superhéroe</label>
-    <br>
-    <input type="text" name="nombreSuperHeroe" id="nombreSuperHeroe" value="<%= superheroe.nombreSuperHeroe %>" required>
-    <br>
+  <%- include('partials/header') %>
 
-    <label for="nombreReal">Nombre Real</label>
-    <br>
-    <input type="text" name="nombreReal" id="nombreReal" value="<%= superheroe.nombreReal %>" required>
-    <br>
-    
-    <label for="edad">Edad</label>
-    <br>
-    <input type="number" name="edad" id="edad" value="<%= superheroe.edad %>" required>
-    <br>
-    
-    <label for="planetaOrigen">Planeta de Origen</label>
-    <br>
-    <input type="text" name="planetaOrigen" id="planetaOrigen" value="<%= superheroe.planetaOrigen %>">
-    <br>
-    
-    <label for="poderes">Poderes</label>
-    <br>
-    <p><small>Ingresa los poderes separados por coma.</small></p>
-    <br>
-    <input type="text" name="poderes" id="poderes" value="<%= superheroe.poderes.join(', ') %>">
-    <br>
-
-    <label for="aliados">Aliados</label>
-    <br>
-    <p><small>Ingresa los aliados separados por coma.</small></p>
-    <br>
-    
-    <input type="text" name="aliados" id="aliados" value="<%= superheroe.aliados.join(', ') %>">
-    <br>
-
-    <label for="enemigos">Enemigos</label>
-    <br>
-    <p><small>Ingresa los enemigos separados por coma.</small></p>
-    <br>
-    <input type="text" name="enemigos" id="enemigos" value="<%= superheroe.enemigos.join(', ') %>">
-    <br>
-
-    <label for="creador">Creador</label>
-    <br>
-    <input type="text" name="creador" id="creador" value="<%= superheroe.creador %> ">
-    <br>
-    
-    <input type="submit" value="Actualizar">
-  </form>
+  <main>
+    <form action="/api/heroes/<%=superheroe._id%>?_method=PUT" method="POST">
+      <label for="nombreSuperHeroe">Nombre Superhéroe</label>
+      <br>
+      <input type="text" name="nombreSuperHeroe" id="nombreSuperHeroe" value="<%= superheroe.nombreSuperHeroe %>" required>
+      <br>
+  
+      <label for="nombreReal">Nombre Real</label>
+      <br>
+      <input type="text" name="nombreReal" id="nombreReal" value="<%= superheroe.nombreReal %>" required>
+      <br>
+      
+      <label for="edad">Edad</label>
+      <br>
+      <input type="number" name="edad" id="edad" value="<%= superheroe.edad %>" required>
+      <br>
+      
+      <label for="planetaOrigen">Planeta de Origen</label>
+      <br>
+      <input type="text" name="planetaOrigen" id="planetaOrigen" value="<%= superheroe.planetaOrigen %>">
+      <br>
+      
+      <label for="poderes">Poderes</label>
+      <br>
+      <p><small>Ingresa los poderes separados por coma.</small></p>
+      <br>
+      <input type="text" name="poderes" id="poderes" value="<%= superheroe.poderes.join(', ') %>">
+      <br>
+  
+      <label for="aliados">Aliados</label>
+      <br>
+      <p><small>Ingresa los aliados separados por coma.</small></p>
+      <br>
+      
+      <input type="text" name="aliados" id="aliados" value="<%= superheroe.aliados.join(', ') %>">
+      <br>
+  
+      <label for="enemigos">Enemigos</label>
+      <br>
+      <p><small>Ingresa los enemigos separados por coma.</small></p>
+      <br>
+      <input type="text" name="enemigos" id="enemigos" value="<%= superheroe.enemigos.join(', ') %>">
+      <br>
+  
+      <label for="creador">Creador</label>
+      <br>
+      <input type="text" name="creador" id="creador" value="<%= superheroe.creador %> ">
+      <br>
+      
+      <input type="submit" value="Actualizar">
+    </form>
+  </main>
 </body>
 </html>
