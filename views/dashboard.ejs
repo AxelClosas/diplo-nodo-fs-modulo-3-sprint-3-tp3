@@ -30,7 +30,7 @@
               <th>Acción</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="filas-dashboard">
             <% if (superheroes) { %>
               <% superheroes.forEach(superheroe=> { %>
                 <tr>
@@ -73,5 +73,7 @@
       </table>
     </div>
   </main>
+
+  <script type="module" src="/js/vistaModalSuperheroe.js"></script>
 </body>
 </html>
