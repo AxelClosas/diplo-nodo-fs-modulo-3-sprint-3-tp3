@@ -31,6 +31,7 @@ html {
   /* Estados */
   --color-error: #DE3618;
   --color-success: #008060;
+  --color-success-hover: #009670;
   --color-warning: #FFC453;
   --color-warning-hover: #fff1d6;
 
@@ -49,6 +50,10 @@ a {
 
 p {
   margin: 0;
+}
+
+button {
+  cursor: pointer;
 }
 
 .header {
@@ -229,10 +234,17 @@ body {
 
 }
 
+/* Formulario para Agregar Superhéroe */
 .main {
+  padding: 2rem 1rem 1rem 1rem;
   .main__form {
     display: flex;
     flex-direction: column;
+    background-color: var(--color-primary-contrast);
+    padding: 1rem;
+
+    border-radius: .5rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
   
     & div {
       display: flex;
@@ -253,39 +265,75 @@ body {
         padding: .5rem;
         margin: .25rem 0;
       }
+
+      
+    }
+
+    & .form__btnPrincipal, .form__btnCancelar, .form__btnEliminar {
+      border: none;
+      padding: .5rem;
+      border-radius: .25rem;
+      text-transform: uppercase;
+      font-weight: 500;
     }
 
     & .form__btnPrincipal {
-      border: none;
       background-color: var(--color-success);
-      padding: .5rem;
-      border-radius: .25rem;
-      margin-top: 1rem;
-      text-transform: uppercase;
-      font-weight: 500;
       color: var(--color-secondary-contrast);
+      transition: background 300ms ease;
+
+      &:hover {
+        background-color: var(--color-success-hover);
+      }
     }
 
     & .form__btnCancelar {
-      border: none;
       background-color: var(--color-warning);
-      padding: .5rem;
-      border-radius: .25rem;
-      margin-top: 1rem;
-      text-transform: uppercase;
-      font-weight: 500;
       color: var(--color-venom-black);
+      transition: background 300ms ease;
+
+      &:hover {
+        background-color: var(--color-warning-hover);
+      }
     }
 
     & .form__btnEliminar {
-      border: none;
       background-color: var(--color-primary);
-      padding: .5rem;
-      border-radius: .25rem;
-      margin-top: 1rem;
-      text-transform: uppercase;
-      font-weight: 500;
       color: var(--color-primary-contrast);
+      transition: background 300ms ease;
+
+      &:hover {
+        background-color: var(--color-primary-hover);
+      }
+    }
+
+    & .form__botones {
+      gap: .5rem;
+      padding-top: .5rem;
+    }
+  }
+}
+
+@media (width >= 540px) {
+  .main {
+    & .main__form {
+      max-width: 540px;
+      margin: 0 auto;
+      & .form__campos {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+
+        & .campos__listado {
+          flex-direction: column;
+          flex-grow: 1;
+        }
+      }
+
+      & .form__botones {
+        flex-direction: row;
+        justify-content: end;
+      }
     }
   }
 }
