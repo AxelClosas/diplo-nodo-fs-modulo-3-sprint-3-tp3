@@ -3,62 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/output.css" type="text/css">
+  <link rel="stylesheet" href="/css/normalize.css" type="text/css">
+  <link rel="stylesheet" href="/css/styles.css" type="text/css">
 
   <title>Agregar Superhéroe</title>
 </head>
 <body>
   <%- include('partials/header') %>
-  <main>
-    <form action="/api/heroes/agregar" method="post">
-      <label for="nombreSuperHeroe">Nombre Superhéroe</label>
-      <br>
-      <input type="text" name="nombreSuperHeroe" id="nombreSuperHeroe" required>
-      <br>
+  <main class="main">
+    <form action="/api/heroes/agregar" method="post" class="main__form">
+      <div>
+        <label data-required for="nombreSuperHeroe">Nombre Superhéroe</label>
+        <input type="text" name="nombreSuperHeroe" id="nombreSuperHeroe" required>
+      </div>
   
-      <label for="nombreReal">Nombre Real</label>
-      <br>
-      <input type="text" name="nombreReal" id="nombreReal" required>
-      <br>
+      <div>
+        <label data-required for="nombreReal">Nombre Real</label>
+        <input type="text" name="nombreReal" id="nombreReal" required>
+      </div>
       
-      <label for="edad">Edad</label>
-      <br>
-      <input type="number" name="edad" id="edad" required>
-      <br>
+      <div>
+        <label data-required for="edad">Edad</label>
+        <input type="number" name="edad" id="edad" required>
+      </div>
       
-      <label for="planetaOrigen">Planeta de Origen</label>
-      <br>
-      <input type="text" name="planetaOrigen" id="planetaOrigen">
-      <br>
+      <div>
+        <label for="planetaOrigen">Planeta de Origen</label>
+        <input type="text" name="planetaOrigen" id="planetaOrigen">
+      </div>
       
-      <label for="poderes">Poderes</label>
-      <br>
-      <p><small>Ingresa los poderes separados por coma.</small></p>
-      <br>
-      <input type="text" name="poderes" id="poderes">
-      <br>
+      <div>
+        <label data-required for="poderes">Poderes</label>
+        <p><small>Ingresa los poderes separados por coma.</small></p>
+        <input type="text" name="poderes" id="poderes" required>
+      </div>
   
-      <label for="aliados">Aliados</label>
-      <br>
-      <p><small>Ingresa los aliados separados por coma.</small></p>
-      <br>
-      <input type="text" name="aliados" id="aliados">
-      <br>
+      <div>
+        <label for="aliados">Aliados</label>
+        <p><small>Ingresa los aliados separados por coma.</small></p>
+        <input type="text" name="aliados" id="aliados">
+      </div>
   
-      <label for="enemigos">Enemigos</label>
-      <br>
-      <p><small>Ingresa los enemigos separados por coma.</small></p>
-      <br>
-      <input type="text" name="enemigos" id="enemigos">
-      <br>
+      <div>
+        <label for="enemigos">Enemigos</label>
+        <p><small>Ingresa los enemigos separados por coma.</small></p>
+        <input type="text" name="enemigos" id="enemigos">
+      </div>
   
-      <label for="creador">Creador</label>
-      <br>
-      <input type="text" name="creador" id="creador">
-      <br>
+      <div>
+        <label for="creador">Creador</label>
+        <input type="text" name="creador" id="creador">
+      </div>
       
-      <input type="submit" value="Agregar">
+      <input class="form__btnPrincipal" type="submit" value="Agregar">
+
+      <button class="form__btnCancelar" type="button" id="btnCancelar">Cancelar</button>
+
     </form>
   </main>
+    <script>
+    const btnCancelar = document.querySelector("#btnCancelar")
+    btnCancelar.addEventListener('click', () => {
+      // console.log(location.origin.concat('/api','/heroes'))
+      window.location.href = location.origin.concat('/api/heroes')
+    })
+  </script>
 </body>
 </html>
