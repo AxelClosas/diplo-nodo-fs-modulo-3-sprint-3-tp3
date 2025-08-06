@@ -41,9 +41,9 @@
         <label for="poderes">Poderes</label>
         <p><small>Ingresa los poderes separados por coma.</small></p>
         <% if (superheroe.poderes) { %>
-          <input type="text" name="poderes" id="poderes" value="<%= superheroe.poderes.join(', ') %>">
+          <input type="text" name="poderes" id="poderes" value="<%= superheroe.poderes.join(', ') %>" required>
         <% } else { %>
-          <input type="text" name="poderes" id="poderes" value="">
+          <input type="text" name="poderes" id="poderes" value="" required>
         <% } %>
       </div>
       
