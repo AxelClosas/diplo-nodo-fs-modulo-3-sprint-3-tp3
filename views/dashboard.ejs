@@ -1,46 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/css/output.css" type="text/css">
   <title>Lista de Superhéroes</title>
 </head>
-<body>
+
+<body class="w-full">
   <%- include('partials/header') %>
-  <main class="bg-gray-200">
-    <h1>Listado completo</h1>
-    <div>
-      <table border="1">
-        <thead>
-          <tr>
-            <th>Superhéroe</th>
-            <th>Nombre Real</th>
-            <th>Edad</th>
-            <th>Planeta de Origen</th>
-            <th>Poderes</th>
-            <th>Aliados</th>
-            <th>Enemigos</th>
-            <th>Creador</th>
-            <th>Acción</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% superheroes.forEach(superheroe => { %>
-           <tr>
-            <td><%= superheroe.nombreSuperHeroe %></td>
-            <td><%= superheroe.nombreReal %></td>
-            <td><%= superheroe.edad %></td>
-            <td><%= superheroe.planetaOrigen %></td>
-            <td><%= superheroe.poderes.join(', ') %></td>
-            <td><%= superheroe.aliados.join(', ') %></td>
-            <td><%= superheroe.enemigos.join(', ') %></td>
-            <td><%= superheroe.creador %></td>
-            <td>
-              <a href="/api/heroes/<%= superheroe._id %>/editar">Editar</a> - <a href="/api/heroes/heroe/<%= superheroe._id %>">Eliminar</a>
-            </td>
-           </tr>
-          <% }) %>
+    <main class="w-full bg-gray-200 overflow-auto">
+      <h1>Repositorio de Superhéroes</h1>
+      <div>
+        <table class="w-full overflow-x-auto">
+          <thead>
+            <tr>
+              <th>Superhéroe</th>
+              <th>Nombre Real</th>
+              <th>Edad</th>
+              <th>Planeta de Origen</th>
+              <th>Poderes</th>
+              <th>Aliados</th>
+              <th>Enemigos</th>
+              <th>Creador</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (superheroes) { %>
+              <% superheroes.forEach(superheroe=> { %>
+                <tr>
+                  <td><%= superheroe.nombreSuperHeroe %></td>
+                  <td><%= superheroe.nombreReal %></td>
+                  <td><%= superheroe.edad %></td>
+                  <td><%= superheroe.planetaOrigen %></td>
+
+                  <% if (superheroe.poderes) { %>
+                    <td><%= superheroe.poderes.join(', ')%></td>
+                  <% } else { %>
+                    <td> - </td>
+                  <% } %>
+                  
+                  <% if (superheroe.aliados) { %>
+                    <td><%= superheroe.aliados.join(', ') %></td>
+                  <% } else { %>
+                    <td> - </td>
+                  <% } %>
+                
+                  <% if (superheroe.enemigos) { %>
+                    <td><%= superheroe.enemigos.join(', ') %></td>
+                  <% } else { %>
+                    <td> - </td>
+                  <% } %>
+              <td><%= superheroe.creador %></td>
+              <td>
+                <a href="/api/heroes/<%= superheroe._id %>/editar">Editar</a> - <a href="/api/heroes/heroe/<%= superheroe._id %>">Eliminar</a>
+              </td>
+             </tr>
+            <% }) %>
+          <% } %>
         </tbody>
       </table>
     </div>

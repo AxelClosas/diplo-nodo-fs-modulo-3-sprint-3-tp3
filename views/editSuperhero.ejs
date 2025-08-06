@@ -36,22 +36,34 @@
       <br>
       <p><small>Ingresa los poderes separados por coma.</small></p>
       <br>
-      <input type="text" name="poderes" id="poderes" value="<%= superheroe.poderes.join(', ') %>">
+      <% if (superheroe.poderes) { %>
+        <input type="text" name="poderes" id="poderes" value="<%= superheroe.poderes.join(', ') %>">
+      <% } else { %>
+        <input type="text" name="poderes" id="poderes" value="">
+      <% } %>
       <br>
   
       <label for="aliados">Aliados</label>
       <br>
       <p><small>Ingresa los aliados separados por coma.</small></p>
       <br>
-      
-      <input type="text" name="aliados" id="aliados" value="<%= superheroe.aliados.join(', ') %>">
+      <% if (superheroe.aliados) { %>
+        <input type="text" name="aliados" id="aliados" value="<%= superheroe.aliados.join(', ') %>">
+      <% } else { %>
+        <input type="text" name="aliados" id="aliados" value="">
+      <% } %>
+
       <br>
   
       <label for="enemigos">Enemigos</label>
       <br>
       <p><small>Ingresa los enemigos separados por coma.</small></p>
       <br>
-      <input type="text" name="enemigos" id="enemigos" value="<%= superheroe.enemigos.join(', ') %>">
+      <% if (superheroe.enemigos) { %>
+        <input type="text" name="enemigos" id="enemigos" value="<%= superheroe.enemigos.join(', ') %>">
+      <% } else { %>
+        <input type="text" name="enemigos" id="enemigos" value="">
+      <% } %>
       <br>
   
       <label for="creador">Creador</label>
